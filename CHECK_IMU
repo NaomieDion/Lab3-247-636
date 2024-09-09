@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Adresse I2C du capteur IMU (0x68)
+ID=$(i2cget -f -y 2 0X68 0X75)
+EXPECTED_ID="0x71"
+
+if [ "$ID" == "$EXPECTED_ID" ]; then
+   echo "Le capteur IMU est present."
+else
+   echo "Le capteur IMU n'est pas detecte."
+fi
